@@ -23,12 +23,12 @@ def merge_chat_runs_in_session(
     messages: List[BaseMessage] = []
     for message in chat_session["messages"]:
         if isinstance(message.content, list):
-            for obj in message.content:
-                text = ""
-                if isinstance(obj, dict):
-                    text += obj.get("text", None)
+            text = ""
+            for content in message.content:
+                if isinstance(content, dict):
+                    text += content.get("text", None)
                 else:
-                    text += obj
+                    text += content
             message.content = text
         if not isinstance(message.content, str):
             raise ValueError(
