@@ -82,7 +82,7 @@ def _check_telegram_chat_loader(path: str) -> None:
                     "sender": "Jimmeny Marvelton",
                     "events": [{"message_time": "23.08.2023 13:17:10 UTC-08:00"}],
                 },
-            )
+            ),
         ]
         _assert_messages_are_equal(session["messages"], expected_content)
 
